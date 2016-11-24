@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>Dataphi Labs Challenge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<style>
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+border : 2px solid red;
+}
+input[disabled="disabled"]{
+opacity : 0.4;
+cursor : not-allowed !important;
+}
+</style>
+  </head>
+<body>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-12">
+  <center><h1>Patient Form </h1></center>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-10"></div>
+<div class="col-sm-2">
+<a style="text-decoration: none;"  href="./#/"><button type="button" class="btn btn-primary">Home</button></a>
+</div>
+</div>
+</div>
+</br>
+<br/>
+<div class="row">
+<div class="col-sm-12">
+<center>
+<form ng-submit="createMeetup()" name="pForm">
+<div class="table-responsive">  
+<table style="width:90%" align="center" class="table table-striped">
+<tbody>
+<tr>
+        <td width="18%">First Name <span style="color:red">*</span>:</td>
+		<td width="82%">
+		 <input type="text" class="form-control" aria-describedby="sizing-addon1" ng-model="firstName" placeholder="Firstname" name="fname" ng-required="true" />
+		 <div ng-show="(pForm.fname.$touched && pForm.fname.$invalid) || firstnameValid">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid first name</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+		<td width="18%">Last Name <span style="color:red">*</span>:</td>
+		<td width="82%">
+		<input type="text" class="form-control" aria-describedby="sizing-addon1"  ng-model="lastName" name="lname" placeholder="Lastname" ng-required="true" />
+		 <div ng-show="(pForm.lname.$touched && pForm.lname.$invalid) || lastnameValid">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid Last name</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+		 <td width="18%">DateofBirth <span style="color:red">*</span>:</td>
+		 <td width="82%">
+		 <input name="dob" id="dob" class="form-control" type="date" min="1955-01-02" max="1998-12-31" ng-model="dob" ng-required="true"/>
+		 <div ng-show="pForm.dob.$touched && pForm.dob.$invalid">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid Date of Birth</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+		 <td width="18%">Age<span style="color:red">*</span>:</td>
+		 <td width="82%">
+		 <input type="number" maxlength="3" min="1" class="form-control" aria-describedby="sizing-addon1" ng-model="age" style="color:black;" name="age" placeholder="Age" id="age" ng-required="true"></input>
+		  <div ng-show="pForm.age.$touched && pForm.age.$invalid">
+		 <small style="color : red; display : block; text-align : center;">Please enter your Age</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+		 <td width="18%">Gender<span style="color:red">*</span>:</td>
+		 <td width="82%">
+		 <select name="gender" class="form-control" ng-model="gender" ng-options="x for x in Gender" ng-required="true"></select>
+		 <div ng-show="pForm.gender.$touched && pForm.gender.$invalid">
+		 <small style="color : red; display : block; text-align : center;">Please select your Gender</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+		 <td width="18%">Phone<span style="color:red">*</span>:</td> 
+		 <td width="82%">
+		 <input type="number" min="111111111" class="form-control" aria-describedby="sizing-addon1" pattern=".{10,}" ng-model="phone" maxlength="10" size="10" name="phone" style="color:black;"  placeholder="Phone" id="phone" ng-required="true"></input>
+		 <div ng-show="pForm.phone.$touched && pForm.phone.$invalid">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid phone number </small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+		 <td width="18%">Leave a Message! : </td>
+		 		 <td width="82%">
+		 <textarea type="text" class="form-control" aria-describedby="sizing-addon1" name="userMessage" style="color:black;"  placeholder="Notes" ng-model="notes" ></textarea>
+		 </td>
+</tr>
+<tr></tr>
+<tr>
+		 <td></td>
+		 <td><center><input type="submit" class="btn btn-primary btn-lg" value="Submit" ng-disabled="pForm.$invalid" />
+			</center></td>
+</tr>
+</tbody>
+</table>
+		</form> 				
+</center>
+</div>
+</div>
+</div>
+</body>
+</html>

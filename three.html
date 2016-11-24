@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Dataphi Labs Challenge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+</style>
+  </head>
+<body>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-12">
+  <center><h1>Patient Directory </h1></center>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-10"></div>
+<div class="col-sm-2">
+<a style="text-decoration: none;"  href="./#/"><button type="button" class="btn btn-primary">Home</button></a>
+</div>
+</div>
+</div>
+</br>
+<br/>
+<div class="row">
+<div class="col-sm-12">
+<center><div class="form-group">
+<input type="text" class="form-control" placeholder="search patient" ng-model="searchBox"></div>
+<br/>
+<div class="table-responsive">  
+<table style="width:90%" align="center" class="table table-striped">
+<tbody>	
+<tr>
+		<td width="2%">ID</td>
+        <td width="10%">First Name</td>
+		<td width="10%">Last Name</td>
+        <td width="28%">Date of Birth[yyyy/mm/dd]</td>
+		<td width="10%">Age</td>
+		<td width="10%">Gender</td>
+		<td width="10%">Phone</td>
+		<td width="30%">Message</td>
+</tr>
+</div>
+</tbody>
+</table>
+<div ng-repeat="x in datap | filter:searchBox">
+<div class="form-group">
+<div class="table-responsive">  
+<table style="width:90%" align="center" class="table table-striped">
+<tbody>		
+<tr>
+<td width="2%">{{ x.id }}</td>
+<td width="10%">{{ x.firstname }}</td>
+<td width="10%">{{ x.lastname }}</td>
+<td width="28%">{{ x.date }}</td>
+<td width="10%">{{ x.age }}</td>
+<td width="10%">{{ x.gender }}</td>
+<td width="10%">{{ x.phone }}</td>
+<td width="30%">{{ x.notes }}</td> 
+</tr>
+</div>
+</tbody>
+</table>
+</div>
+</center>
+</div>
+</div>
+</div>
+</body>
+</html>
